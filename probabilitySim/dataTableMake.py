@@ -5,8 +5,14 @@ skill =[]
 luck = []
 aggregate = []
 tableEntry = [skill , luck , aggregate]
+passArr = []
+numPassed = 0
+numPassedNoLuck = 0
 
-def dataTableMake(tableSize = 10 , percentSkill = 95 , percentLuck = 5):
+def dataTableMake(tableSize = 10 , percentSkill = 95 , percentLuck = 5 , passReq = 50):
+    global numPassed
+    global numPassedNoLuck
+
     if(percentSkill + percentLuck != 100):
         percentLuck += 100 - (percentSkill + percentLuck) # Will replace percentLuck with 100 - percentSkill
         # Doing this ensures our total sum will equal 100, but we send a warning message to the user 
@@ -21,16 +27,17 @@ def dataTableMake(tableSize = 10 , percentSkill = 95 , percentLuck = 5):
         aggregate.append(skill[i] + luck[i])
         if(aggregate[i] < 0):
             aggregate[i] = 0
+        if(tableEntry[2][i] >= passReq):
+            passArr.append(tableEntry[1][i])
+            numPassed += 1
+        if(tableEntry[0][i] >= passReq):
+            passArr.append(0)
+            numPassedNoLuck += 1
+        else:
+            passArr.append(-1)
            
-dataTableMake(10 , 100, 0)
-passArr = []
-numPassed = 0
-for i in range(10):
-    if(tableEntry[2][i] >= 90):
-        passArr.append(tableEntry[1][i])
-        numPassed += 1
-    else:
-        passArr.append(-1)
-print(passArr)
+dataTableMake(1000 , 95, 5 , 94)
 print(numPassed)
+print(numPassedNoLuck)
+
 
