@@ -7,5 +7,3 @@ def inversePyramid(pyramidLength = 4):
         k.append(1)
     print(k)
     inversePyramid(pyramidLength - 1)
-
-inversePyramid(13)

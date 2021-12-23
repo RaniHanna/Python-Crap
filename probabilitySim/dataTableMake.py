@@ -36,8 +36,7 @@ def dataTableMake(tableSize = 10 , percentSkill = 95 , percentLuck = 5 , passReq
         else:
             passArr.append(-1)
            
-dataTableMake(1000 , 95, 5 , 94)
-print(numPassed)
-print(numPassedNoLuck)
+dataTableMake(10 , 95, 5 , 94)
+print(tableEntry)
 
 
