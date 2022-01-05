@@ -35,8 +35,18 @@ def dataTableMake(tableSize = 10 , percentSkill = 95 , percentLuck = 5 , passReq
             numPassedNoLuck += 1
         else:
             passArr.append(-1)
-           
-dataTableMake(10 , 95, 5 , 94)
-print(tableEntry)
 
 
+#dataTableMake(5 , 95, 5 , 90)
+#print(tableEntry)
+#def dataTableSort(tableEntry):
+    aggregateSort = sorted(tableEntry[2])
+    skillSort = [None] * len(tableEntry[0])
+    luckSort = [None] * len(tableEntry[0])
+    for i in range(len(tableEntry[2])):
+        for j in range(len(tableEntry[2])):
+            if(tableEntry[0][j] + tableEntry[1][j] == aggregateSort[i]):
+                skillSort[i] = tableEntry[0][j]
+                luckSort[i] = tableEntry[1][j]
+    tableEntry = [skillSort , luckSort , aggregateSort]
+    return(tableEntry)
