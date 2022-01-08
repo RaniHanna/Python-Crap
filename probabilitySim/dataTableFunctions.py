@@ -35,7 +35,7 @@ def dataTableMake(tableSize = 10 , percentSkill = 95 , percentLuck = 5 , passReq
             numPassedNoLuck += 1
         else:
             passArr.append(-1)
-    return(tableEntry)
+    return(tableEntry , passArr , numPassed , numPassedNoLuck)
 
 def dataTableSort(tableEntry):
     aggregateSort = sorted(tableEntry[2])
