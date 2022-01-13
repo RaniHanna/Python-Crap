@@ -9,6 +9,7 @@ passArr = []
 numPassed = 0
 numPassedNoLuck = 0
 
+# Main function to create data table, can be of any size
 def dataTableMake(tableSize = 10 , percentSkill = 95 , percentLuck = 5 , passReq = 50):
     global numPassed
     global numPassedNoLuck

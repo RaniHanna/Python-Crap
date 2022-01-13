@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 import PySimpleGUI as sg
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
+# For tomorrow: Create fct for the portion where we generate data and plots, so we can call to re-generate the data and plots
+# While the app window is still open, we can continuously check via a while loop if an "update" button is/isn't pressed
+# This can be done in the bottom GUI code and view the link open in Chrome for similar implementation
+# When making the fcts, split one for making the data and another for plotting the data 
+
 # Generating Data Table & Assigning Values
 numEntries , percentLuck , percentSkill, passReq = 5 , 95 , 5 , 50
 x = dataTableFunctions.dataTableMake(numEntries , percentLuck , percentSkill,passReq)
