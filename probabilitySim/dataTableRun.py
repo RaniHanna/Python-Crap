@@ -10,7 +10,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 # When making the fcts, split one for making the data and another for plotting the data 
 
 # Generating Data Table & Assigning Values
-numEntries , percentLuck , percentSkill, passReq = 5 , 95 , 5 , 50
+numEntries , percentLuck , percentSkill, passReq = 10 , 95 , 5 , 50
 x = dataTableFunctions.dataTableMake(numEntries , percentLuck , percentSkill,passReq)
 tableEntry , passArr , numPassed , numPassedNoLuck = x[0] , x[1] , x[2] , x[3]
 
@@ -45,11 +45,11 @@ fig = plt.gcf()  # if using Pyplot then get the figure from the plot
 figure_x, figure_y, figure_w, figure_h = fig.bbox.bounds
 
 # define the window layout
-layout = [[sg.Canvas(size=(figure_w, figure_h), key='-CANVAS-')],
-          [sg.OK(pad=((figure_w / 2, 0), 3), size=(6, 1))]]
+layout = [[sg.Canvas(size=(figure_w , figure_h), key='-CANVAS-')],
+          [sg.OK(pad=((figure_w /2, 0), 3), size=(6, 1))]]
 
 # create the form and show it without the plot
-window = sg.Window('Demo Application - Embedding Matplotlib In PySimpleGUI',
+window = sg.Window('Probability Simulator Project GUI',
     layout, force_toplevel=True, finalize=True)
 
 # add the plot to the window

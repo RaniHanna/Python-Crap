@@ -50,7 +50,7 @@ layout = [[sg.Text('Plot test', font='Any 18')],
           [sg.OK(pad=((figure_w / 2, 0), 3), size=(4, 2))]]
 
 # create the form and show it without the plot
-window = sg.Window('Demo Application - Embedding Matplotlib In PySimpleGUI',
+window = sg.Window('Probability Simulator Project GUI',
     layout, force_toplevel=True, finalize=True)
 
 # add the plot to the window
