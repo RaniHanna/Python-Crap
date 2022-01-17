@@ -92,8 +92,7 @@ while True:
         saveAsExcel = pd.ExcelWriter('badFileType.xlsx')
         CSV_Saver.to_excel(saveAsExcel , index = False)
         saveAsExcel.save()
-        os.remove('openCSV.csv')
-
+        
         window['Excel'].update(visible = False)
         window['CSV'].update(visible = False)
 
