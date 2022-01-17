@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from faulthandler import disable
 import PySimpleGUI as sg
-
+import xlsxwriter
 
 # Starts the counter through user input of 'start'    
 def startCounter():
@@ -21,12 +21,13 @@ def endCounter():
 # Box
 # Elapsed time starts at 00:00:00
 # 2 buttons (Start and End)
-layout = [ [sg.Text("Here's your stopwatch Jojo that you could have made yourself")],
+layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text('00:00:00' , key = 'GUI_Time')],
-           [sg.Button('Start'), sg.Button('End') , sg.Button('Log Run' , disabled = True)]
+           [sg.Button('Start'), sg.Button('End') , sg.Button('Log Run' , disabled = True)],
+           [sg.Button('Save as Excel' , visible = False , key = 'Excel') , sg.Button('Save as CSV' , visible = False , key = 'CSV')]
          ]
 
-window = sg.Window("Jojo's Timer", layout, element_justification='c')
+window = sg.Window("Stopwatch Program", layout, element_justification='c')
 
 # Test to see how tf event and values are read and displayed
 while True:
@@ -64,6 +65,10 @@ while True:
 
     #To properly log outputs, we'll just have the user log the output themselves by pressing the button
     if event == "Log Run":
+        window['Excel'].update(visible = True)
+        window['CSV'].update(visible = True)
+        window['Log Run'].update(disabled = True)
+    if event == 'CSV':
         try:
             openCSV = open('openCSV.csv' , 'r')
             openCSV.close()
@@ -75,7 +80,11 @@ while True:
             openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) \n")
             openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
             openCSV.close()
-        window['Log Run'].update(disabled = True)
+        window['Excel'].update(visible = False)
+        window['CSV'].update(visible = False)
+    if event == 'Excel':
+        window['Excel'].update(visible = False)
+        window['CSV'].update(visible = False)
 
 #str(datetime.now().hour) + ':' + str(datetime.now().minute) + ':' + str(datetime.now().second)
     # Call the datetime.now() infinitely and display it on the GUI (EQ = datime.now() - startTime)    
