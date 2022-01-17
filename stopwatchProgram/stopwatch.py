@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from faulthandler import disable
 import PySimpleGUI as sg
 
@@ -17,15 +17,13 @@ def endCounter():
 
 # GUI begins :)
 
-GUI_Time = datetime.now()
-
 # Initial
 # Box
 # Elapsed time starts at 00:00:00
 # 2 buttons (Start and End)
 layout = [ [sg.Text("Here's your stopwatch Jojo that you could have made yourself")],
-           [sg.Text(GUI_Time)],
-           [sg.Button('Start'), sg.Button('End')]
+           [sg.Text('00:00:00' , key = 'GUI_Time')],
+           [sg.Button('Start'), sg.Button('End') , sg.Button('Log Run' , disabled = True)]
          ]
 
 window = sg.Window("Jojo's Timer", layout, element_justification='c')
@@ -34,7 +32,6 @@ window = sg.Window("Jojo's Timer", layout, element_justification='c')
 while True:
     # Tree elements and their respective events
     event, values = window.read()
-
     if event == sg.WIN_CLOSED or event == 'Exit':
         break
 
@@ -46,10 +43,10 @@ while True:
         # Change the button states
         window['Start'].update(disabled=True)
         window['End'].update(disabled=False)
-        
 
         startCounter()
-
+        window['GUI_Time'].update("The timer is running, will show final elapsed time when finished")
+        
     # Timer runs till user presses stop
     # Stop is pressed and calls the endCounter function
     if event == 'End':
@@ -59,7 +56,24 @@ while True:
         window['Start'].update(disabled=False)
         window['End'].update(disabled=True)
         endCounter()
+        timeElapsed = endTime - startTime
+        window['GUI_Time'].update(timeElapsed)
+        window['Log Run'].update(disabled = False)
 
+    #To properly log outputs, we'll just have the user log the output themselves by pressing the button 
+    if event == "Log Run":
+        try:
+            openCSV = open('openCSV.csv' , 'r')
+            openCSV.close()
+            openCSV = open('openCSV.csv' , 'a')
+            openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
+        except:
+            openCSV = open('openCSV.csv' , 'a')
+            openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) \n")
+            openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
+            openCSV.close()
+        window['Log Run'].update(disabled = True)
+#str(datetime.now().hour) + ':' + str(datetime.now().minute) + ':' + str(datetime.now().second)
     # Call the datetime.now() infinitely and display it on the GUI (EQ = datime.now() - startTime)    
     print(event,values)
 
@@ -70,21 +84,7 @@ while True:
 
 # Problem with this is the CSV file saving and creation
 # After trying to save another time, the program creates another CSV file rather than appending to the one already within the directory
-"""        
-
-        try:
-            openCSV = open('openCSV.csv' , 'r')
-            openCSV.close()
-            openCSV = open('openCSV.csv' , 'a')
-            openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
-        except:
-            openCSV = open('openCSV.csv' , 'a')
-            openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) \n")
-            openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
-            openCSV.close()"""
-
-
-
+       
 # Always called like a file close (safely frees up resources)
 window.close()
 
