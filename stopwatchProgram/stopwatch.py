@@ -58,21 +58,25 @@ while True:
         endCounter()
         timeElapsed = endTime - startTime
         window['GUI_Time'].update(timeElapsed)
+
+        # We update the log run button after we hit end because that's when it can actually log a run properly
         window['Log Run'].update(disabled = False)
 
-    #To properly log outputs, we'll just have the user log the output themselves by pressing the button 
+    #To properly log outputs, we'll just have the user log the output themselves by pressing the button
     if event == "Log Run":
         try:
             openCSV = open('openCSV.csv' , 'r')
             openCSV.close()
             openCSV = open('openCSV.csv' , 'a')
             openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
+            openCSV.close()
         except:
             openCSV = open('openCSV.csv' , 'a')
             openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) \n")
             openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
             openCSV.close()
         window['Log Run'].update(disabled = True)
+
 #str(datetime.now().hour) + ':' + str(datetime.now().minute) + ':' + str(datetime.now().second)
     # Call the datetime.now() infinitely and display it on the GUI (EQ = datime.now() - startTime)    
     print(event,values)
