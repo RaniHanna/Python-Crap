@@ -3,6 +3,8 @@ import PySimpleGUI as sg
 import pandas as pd
 import os
 
+flag_GUI_Time = False
+
 # Starts the counter through user input of 'start'    
 def startCounter():
     global startTime
@@ -15,6 +17,7 @@ def endCounter():
         endTime = datetime.now()
         print("The final time is: " + str(endTime))
 
+# CSV saving function
 def saveAsCSV():
     try:
             openCSV = open('openCSV.csv' , 'r')
@@ -36,8 +39,8 @@ def saveAsCSV():
 # 2 buttons (Start and End)
 layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text('00:00:00' , key = 'GUI_Time')],
-           [sg.Button('Start'), sg.Button('End') , sg.Button('Log Run' , disabled = True)],
-           [sg.Button('Save as Excel' , visible = False , key = 'Excel') , sg.Button('Save as CSV' , visible = False , key = 'CSV')]
+           [sg.Button('Start'), sg.Button('End') , sg.Button('Log Run' , disabled = True)]
+#           [sg.Button('Save as Excel' , visible = False , key = 'Excel') , sg.Button('Save as CSV' , visible = False , key = 'CSV')]
          ]
 
 window = sg.Window("Stopwatch Program", layout, element_justification='c')
@@ -49,6 +52,10 @@ while True:
     if event == sg.WIN_CLOSED or event == 'Exit':
         break
 
+    """    if flag_GUI_Time == True:
+            timeElapsed = datetime.now() - startTime
+            window['GUI_Time'].update(timeElapsed)
+    """
     # User presses start and calls the startCounter() function
     # Record start time
     if event == 'Start':
@@ -59,7 +66,9 @@ while True:
         window['End'].update(disabled=False)
 
         startCounter()
-        window['GUI_Time'].update("The timer is running, will show final elapsed time when finished")
+
+        # Sets a flag to start the infinite timer
+        flag_GUI_Time = True
         
     # Timer runs till user presses stop
     # Stop is pressed and calls the endCounter function
@@ -71,6 +80,7 @@ while True:
         window['End'].update(disabled=True)
         endCounter()
         timeElapsed = endTime - startTime
+        flag_GUI_Time = False
         window['GUI_Time'].update(timeElapsed)
 
         # We update the log run button after we hit end because that's when it can actually log a run properly
@@ -78,13 +88,33 @@ while True:
 
     #To properly log outputs, we'll just have the user log the output themselves by pressing the button
     if event == "Log Run":
-        window['Excel'].update(visible = True)
-        window['CSV'].update(visible = True)
+
+        saveAsCSV()
+        
+        CSV_Saver = pd.read_csv('openCSV.csv')
+        saveAsExcel = pd.ExcelWriter('badFileType.xlsx')
+        CSV_Saver.to_excel(saveAsExcel , index = False)
+        saveAsExcel.save()
+
         window['Log Run'].update(disabled = True)
+
+    print(event,values)
+
+"""        window['Excel'].update(visible = True)
+        window['CSV'].update(visible = True)
+        window['Log Run'].update(disabled = True)"""
+
+"""    
+    # If the user wishes to save it as a CSV, then the time will be logged into a CSV file and the buttons will disappear after
     if event == 'CSV':
         saveAsCSV()
         window['Excel'].update(visible = False)
         window['CSV'].update(visible = False)
+        
+        window['Excel'].hide_row()
+        window['CSV'].hide_row()
+    
+    # If the user wishes to save it as a CSV, then the time will be logged into a CSV file and the buttons will disappear after
     if event == 'Excel':
         saveAsCSV()
         
@@ -96,9 +126,11 @@ while True:
         window['Excel'].update(visible = False)
         window['CSV'].update(visible = False)
 
+        window['Excel'].hide_row()
+        window['CSV'].hide_row()"""
+
 #str(datetime.now().hour) + ':' + str(datetime.now().minute) + ':' + str(datetime.now().second)
     # Call the datetime.now() infinitely and display it on the GUI (EQ = datime.now() - startTime)    
-    print(event,values)
 
 
 # Elapsed time is calculated (end-start) and recorded to the csv file
