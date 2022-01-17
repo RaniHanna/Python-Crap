@@ -1,7 +1,7 @@
 from datetime import date, datetime
-from faulthandler import disable
 import PySimpleGUI as sg
-import xlsxwriter
+import pandas as pd
+import os
 
 # Starts the counter through user input of 'start'    
 def startCounter():
@@ -14,6 +14,19 @@ def endCounter():
         global endTime
         endTime = datetime.now()
         print("The final time is: " + str(endTime))
+
+def saveAsCSV():
+    try:
+            openCSV = open('openCSV.csv' , 'r')
+            openCSV.close()
+            openCSV = open('openCSV.csv' , 'a')
+            openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
+            openCSV.close()
+    except:
+        openCSV = open('openCSV.csv' , 'a')
+        openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) \n")
+        openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
+        openCSV.close()
 
 # GUI begins :)
 
@@ -69,20 +82,18 @@ while True:
         window['CSV'].update(visible = True)
         window['Log Run'].update(disabled = True)
     if event == 'CSV':
-        try:
-            openCSV = open('openCSV.csv' , 'r')
-            openCSV.close()
-            openCSV = open('openCSV.csv' , 'a')
-            openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
-            openCSV.close()
-        except:
-            openCSV = open('openCSV.csv' , 'a')
-            openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) \n")
-            openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
-            openCSV.close()
+        saveAsCSV()
         window['Excel'].update(visible = False)
         window['CSV'].update(visible = False)
     if event == 'Excel':
+        saveAsCSV()
+        
+        CSV_Saver = pd.read_csv('openCSV.csv')
+        saveAsExcel = pd.ExcelWriter('badFileType.xlsx')
+        CSV_Saver.to_excel(saveAsExcel , index = False)
+        saveAsExcel.save()
+        os.remove('openCSV.csv')
+
         window['Excel'].update(visible = False)
         window['CSV'].update(visible = False)
 
