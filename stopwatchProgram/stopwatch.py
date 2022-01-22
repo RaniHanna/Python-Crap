@@ -1,10 +1,11 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import PySimpleGUI as sg
 import pandas as pd
 import os
 
 flag_GUI_Time = False
 currentTime = '0:00:00'
+diff = timedelta(days=0, seconds=0, microseconds=0)
 
 # Starts the counter 
 # Takes in no arguments, the startTime variable is set to the current time when called   
@@ -76,7 +77,7 @@ if __name__ == "__main__":
 
         # Updates the currentTime
         if flag_GUI_Time == True:
-            currentTime = datetime.now() - startTime
+            currentTime = datetime.now() - startTime - diff
             window['GUI_Time'].update(currentTime)
 
         # User presses start and calls the startCounter() function
@@ -86,7 +87,6 @@ if __name__ == "__main__":
             
             # Change the button states so that the user can only stop the timer
             window['Start'].update(disabled=True)
-            window['Pause'].update(disabled = False)
             window['End'].update(disabled=False)
 
             startCounter()
@@ -104,6 +104,9 @@ if __name__ == "__main__":
             window['Resume'].update(disabled=True)
             window['Log Run'].update(disabled=True)
             window['End'].update(disabled=False)
+
+            # Record the difference of time from when you stopped the timer and when you restart it
+            diff = datetime.now() - endTime
 
             # Allow the time to continue again
             flag_GUI_Time = True
