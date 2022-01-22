@@ -5,6 +5,7 @@ import os
 
 flag_GUI_Time = False
 currentTime = '0:00:00'
+comment = ''
 
 # Starts the counter 
 # Takes in no arguments, the startTime variable is set to the current time when called   
@@ -31,13 +32,13 @@ def saveAsCSV():
         openCSV = open('openCSV.csv' , 'r')
         openCSV.close()
         openCSV = open('openCSV.csv' , 'a')
-        openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
+        openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + ", " + str(comment) + "\n")
         openCSV.close()
     
     except:
         openCSV = open('openCSV.csv' , 'a')
-        openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) \n")
-        openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
+        openCSV.write("Start Time , End Time , Time Elapsed (HH:MM:SS.ms) , Comments \n")
+        openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + ", " + str(comment) + "\n")
         openCSV.close()
 
 # Excel saving function
@@ -57,7 +58,11 @@ def saveAsEXCEL():
 # 3 buttons (Start, End, and Log Run)
 layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text(currentTime, key = 'GUI_Time')],
-           [sg.Button('Start'), sg.Button('Resume' , disabled = True), sg.Button('End') , sg.Button('Log Run' , disabled = True)]
+           [sg.Button('Start'), sg.Button('Resume' , disabled = True), sg.Button('End') , sg.Button('Log Run' , disabled = True)],
+           [sg.Button('Save with Comment', visible = False) , sg.Button('Save without Comment', visible = False)],
+           [sg.Text("Write your comment below, once finished press the 'Confirm' button. " ,visible = False , key = 'saveText')],
+           [sg.Input(key = 'comment' , visible = False)],
+           [sg.Button('Confirm' , visible = False)]
          ]
 
 # Create window with all elements centered
@@ -140,11 +145,33 @@ if __name__ == "__main__":
 
             # Elapsed time is calculated (end-start) and recorded to the csv file
             # timeElapsed = endTime - startTime
-            saveAsCSV()           
-            saveAsEXCEL()
             
             # Disable's the button to prevent the user from double-logging
             window['Log Run'].update(disabled = True)
+            window['Save with Comment'].update(visible = True)
+            window['Save without Comment'].update(visible = True)
+        
+        if event == 'Save with Comment':
+
+            window['Save with Comment'].update(visible = False)
+            window['Save without Comment'].update(visible = False)
+            window['Confirm'].update(visible = True)
+            window['comment'].update(visible = True)
+
+        if event == 'Confirm':
+            comment = str(values['comment'])
+            saveAsCSV()           
+            saveAsEXCEL()
+            window['Confirm'].update(visible = False)
+            window['comment'].update(visible = False)
+
+
+        if event == 'Save without Comment':
+            comment = ''
+            saveAsCSV()           
+            saveAsEXCEL()
+            window['Save with Comment'].update(visible = False)
+            window['Save without Comment'].update(visible = False)
 
         # Debugging
         #print(event,values)
