@@ -6,17 +6,22 @@ import os
 flag_GUI_Time = False
 currentTime = '0:00:00'
 
-# Starts the counter through user input of 'start'    
+# Starts the counter 
+# Takes in no arguments, the startTime variable is set to the current time when called   
 def startCounter():
     global startTime
     startTime = datetime.now()
-    print("The start time is: " + str(startTime))
+    
+    # For Debugging
+    # print("The start time is: " + str(startTime))
 
 # Ends the counter through user input of 'end'
 def endCounter():
         global endTime
         endTime = datetime.now()
-        print("The final time is: " + str(endTime))
+
+        # For Debugging
+        # print("The final time is: " + str(endTime))
 
 # CSV saving function
 def saveAsCSV():
@@ -33,12 +38,12 @@ def saveAsCSV():
         openCSV.write(str(startTime) + ", " + str(endTime) + ", " + str(timeElapsed) + "\n")
         openCSV.close()
 
+# Excel saving function
 def saveAsEXCEL():
     CSV_Saver = pd.read_csv('openCSV.csv')
     saveAsExcel = pd.ExcelWriter('badFileType.xlsx')
     CSV_Saver.to_excel(saveAsExcel , index = False)
     saveAsExcel.save()
-
 
 
 # GUI begins :)
@@ -47,35 +52,39 @@ def saveAsEXCEL():
 # Initial
 # Box
 # Elapsed time starts at 00:00:00
-# 2 buttons (Start and End)
+# 3 buttons (Start, End, and Log Run)
 layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text(currentTime, key = 'GUI_Time')],
-           [sg.Button('Start'), sg.Button('End') , sg.Button('Log Run' , disabled = True)]
+           [sg.Button('Start', button_color="green"), sg.Button('Resume', button_color="orange", disabled = True), sg.Button('End', button_color="red") , sg.Button('Log Run' , button_color="blue", disabled = True)]
          ]
 
+# Create window with all elements centered
 window = sg.Window("Stopwatch Program", layout, element_justification='c')
 
 # ------------------------------------------------------------------------------------------------ #
 
 # Main loop
 if __name__ == "__main__":
+    
     while True:
-
         # Tree elements and their respective events
         event, values = window.read(timeout=10)
+
+        # If the window is ever closed, exit the loop
         if event == sg.WIN_CLOSED or event == 'Exit':
             break
         
         # Updates the currentTime
         if flag_GUI_Time == True:
             currentTime = datetime.now() - startTime
+            window['GUI_Time'].update(currentTime)
 
         # User presses start and calls the startCounter() function
         # Record start time
         if event == 'Start':
             print("You have pressed the start button")
             
-            # Change the button states
+            # Change the button states so that the user can only stop the timer
             window['Start'].update(disabled=True)
             window['End'].update(disabled=False)
 
@@ -83,7 +92,22 @@ if __name__ == "__main__":
 
             # Sets a flag to start the infinite timer
             flag_GUI_Time = True
-            
+        
+        # User presses resume and the timer resumes
+        # PROBLEM (The time in the real world will continue and the calculation will be inaccurate)
+        if event == 'Resume':
+            print("You have pressed the resume button")
+
+            # Change the button states
+            window['Start'].update(disabled=True)
+            window['Resume'].update(disabled=True)
+            window['Log Run'].update(disabled=True)
+            window['End'].update(disabled=False)
+
+            # Allow the time to continue again
+            flag_GUI_Time = True
+            continue
+
         # Timer runs till user presses stop
         # Stop is pressed and calls the endCounter function
         if event == 'End':
@@ -92,13 +116,19 @@ if __name__ == "__main__":
             # Change the button states
             window['Start'].update(disabled=False)
             window['End'].update(disabled=True)
+            
+            # Also allow the user to continue the current run
+            window['Resume'].update(disabled = False)
+
             endCounter()
             timeElapsed = endTime - startTime
             flag_GUI_Time = False
             window['GUI_Time'].update(timeElapsed)
 
-            # We update the log run button after we hit end because that's when it can actually log a run properly
+            # We allow the user to log after the timer stops running
             window['Log Run'].update(disabled = False)
+
+
 
         #To properly log outputs, we'll just have the user log the output themselves by pressing the button
         if event == "Log Run":
@@ -108,15 +138,11 @@ if __name__ == "__main__":
             saveAsCSV()           
             saveAsEXCEL()
             
+            # Disable's the button to prevent the user from double-logging
             window['Log Run'].update(disabled = True)
 
-        window['GUI_Time'].update(currentTime)
-
-        # print(event,values)
-
-
-    #str(datetime.now().hour) + ':' + str(datetime.now().minute) + ':' + str(datetime.now().second)
-        # Call the datetime.now() infinitely and display it on the GUI (EQ = datime.now() - startTime)    
+        # Debugging
+        print(event,values)
         
     # Always called like a file close (safely frees up resources)
     window.close()
