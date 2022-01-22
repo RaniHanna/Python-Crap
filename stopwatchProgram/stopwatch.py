@@ -106,7 +106,7 @@ if __name__ == "__main__":
             window['End'].update(disabled=False)
 
             # Record the difference of time from when you stopped the timer and when you restart it
-            diff = datetime.now() - endTime
+            diff += datetime.now() - endTime
 
             # Allow the time to continue again
             flag_GUI_Time = True
@@ -125,7 +125,7 @@ if __name__ == "__main__":
             window['Resume'].update(disabled = False)
 
             endCounter()
-            timeElapsed = endTime - startTime
+            timeElapsed = endTime - startTime - diff
             flag_GUI_Time = False
             window['GUI_Time'].update(timeElapsed)
 
