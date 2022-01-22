@@ -50,7 +50,7 @@ def saveAsEXCEL():
 # 2 buttons (Start and End)
 layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text(currentTime, key = 'GUI_Time')],
-           [sg.Button('Start'), sg.Button('End') , sg.Button('Log Run' , disabled = True)]
+           [sg.Button('Start'), sg.Button('End' , disabled = True) , sg.Button('Pause' , disabled = True), sg.Button('Log Run' , disabled = True)]
          ]
 
 window = sg.Window("Stopwatch Program", layout, element_justification='c')
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         event, values = window.read(timeout=10)
         if event == sg.WIN_CLOSED or event == 'Exit':
             break
-        
+
         # Updates the currentTime
         if flag_GUI_Time == True:
             currentTime = datetime.now() - startTime
@@ -77,13 +77,16 @@ if __name__ == "__main__":
             
             # Change the button states
             window['Start'].update(disabled=True)
+            window['Pause'].update(disabled = False)
             window['End'].update(disabled=False)
 
             startCounter()
 
             # Sets a flag to start the infinite timer
             flag_GUI_Time = True
-            
+        
+        if event == 'Pause':
+            flag_GUI_Time == False
         # Timer runs till user presses stop
         # Stop is pressed and calls the endCounter function
         if event == 'End':
@@ -92,6 +95,7 @@ if __name__ == "__main__":
             # Change the button states
             window['Start'].update(disabled=False)
             window['End'].update(disabled=True)
+            window['Pause'].update(disabled = True)
             endCounter()
             timeElapsed = endTime - startTime
             flag_GUI_Time = False
