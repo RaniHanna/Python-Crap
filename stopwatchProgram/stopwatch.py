@@ -5,13 +5,14 @@ import os
 
 flag_GUI_Time = False
 currentTime = '0:00:00'
-diff = timedelta(days=0, seconds=0, microseconds=0)
 
 # Starts the counter 
 # Takes in no arguments, the startTime variable is set to the current time when called   
 def startCounter():
     global startTime
     startTime = datetime.now()
+    global diff
+    diff = timedelta(days=0, seconds=0, microseconds=0)
     
     # For Debugging
     # print("The start time is: " + str(startTime))
@@ -56,7 +57,7 @@ def saveAsEXCEL():
 # 3 buttons (Start, End, and Log Run)
 layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text(currentTime, key = 'GUI_Time')],
-           [sg.Button('Start', button_color="green"), sg.Button('Resume', button_color="orange", disabled = True), sg.Button('End', button_color="red") , sg.Button('Log Run' , button_color="blue", disabled = True)]
+           [sg.Button('Start'), sg.Button('Resume' , disabled = True), sg.Button('End') , sg.Button('Log Run' , disabled = True)]
          ]
 
 # Create window with all elements centered
@@ -146,7 +147,7 @@ if __name__ == "__main__":
             window['Log Run'].update(disabled = True)
 
         # Debugging
-        print(event,values)
+        #print(event,values)
         
     # Always called like a file close (safely frees up resources)
     window.close()
