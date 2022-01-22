@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import datetime
 import PySimpleGUI as sg
 import pandas as pd
 import os
