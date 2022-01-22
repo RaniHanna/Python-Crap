@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import datetime
 import PySimpleGUI as sg
 import pandas as pd
 import os
@@ -73,7 +73,7 @@ if __name__ == "__main__":
         # If the window is ever closed, exit the loop
         if event == sg.WIN_CLOSED or event == 'Exit':
             break
-        
+
         # Updates the currentTime
         if flag_GUI_Time == True:
             currentTime = datetime.now() - startTime
@@ -86,6 +86,7 @@ if __name__ == "__main__":
             
             # Change the button states so that the user can only stop the timer
             window['Start'].update(disabled=True)
+            window['Pause'].update(disabled = False)
             window['End'].update(disabled=False)
 
             startCounter()
