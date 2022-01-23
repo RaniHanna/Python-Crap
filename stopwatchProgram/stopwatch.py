@@ -6,6 +6,7 @@ import os
 flag_GUI_Time = False
 currentTime = '0:00:00'
 comment = ''
+win2_active = False
 
 # Starts the counter 
 # Takes in no arguments, the startTime variable is set to the current time when called   
@@ -58,10 +59,10 @@ def saveAsEXCEL():
 # 3 buttons (Start, End, and Log Run)
 layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text(currentTime, key = 'GUI_Time')],
-           [sg.Button('Start'), sg.Button('Resume' , disabled = True), sg.Button('End') , sg.Button('Log Run' , disabled = True)],
-           [sg.Button('Save with Comment', visible = False) , sg.Button('Save without Comment', visible = False)],
-           [sg.Input(key = 'comment' , visible = False)],
-           [sg.Button('Confirm' , visible = False)]
+           [sg.Button('Start'), sg.Button('Resume' , disabled = True), sg.Button('End', disabled = True) , sg.Button('Log Run' , disabled = True)]
+#           [sg.Button('Save with Comment', visible = False) , sg.Button('Save without Comment', visible = False)],
+#           [sg.Input(key = 'comment' , visible = False)],
+#           [sg.Button('Confirm' , visible = False)]
          ]
 
 # Create window with all elements centered
@@ -90,8 +91,10 @@ if __name__ == "__main__":
         if event == 'Start':
             print("You have pressed the start button")
             
-            # Change the button states so that the user can only stop the timer
-            window['Start'].update(disabled=True)
+            # Change the button states 
+            window['Start'].update('Start', disabled=True)
+            window['Resume'].update(disabled = True)
+            window['Log Run'].update(disabled = True)
             window['End'].update(disabled=False)
 
             startCounter()
@@ -123,54 +126,105 @@ if __name__ == "__main__":
             print("You have pressed the end button")
 
             # Change the button states
-            window['Start'].update(disabled=False)
+            window['Start'].update('Reset', disabled=False)
             window['End'].update(disabled=True)
-            
-            # Also allow the user to continue the current run
             window['Resume'].update(disabled = False)
+            window['Log Run'].update(disabled = False)
 
             endCounter()
+
+            # Calculate the Elapsed time and stop the GUI_Time calculation
             timeElapsed = endTime - startTime - diff
             flag_GUI_Time = False
             window['GUI_Time'].update(timeElapsed)
 
-            # We allow the user to log after the timer stops running
-            window['Log Run'].update(disabled = False)
-
-
-
         #To properly log outputs, we'll just have the user log the output themselves by pressing the button
-        if event == "Log Run":
 
+
+        if event == "Log Run" and not win2_active:
+
+# --------------------------------------REDACTED----------------------------------------------------------- #
             # Elapsed time is calculated (end-start) and recorded to the csv file
             # timeElapsed = endTime - startTime
             
             # Disable's the button to prevent the user from double-logging
+#            window['Log Run'].update(disabled = True)
+#            window['Save with Comment'].update(visible = True)
+#            window['Save without Comment'].update(visible = True)
+# --------------------------------------REDACTED----------------------------------------------------------- #
+
+            # Essentially we will open another window and ask the user for the format of how they want to save their file
+            # Declare that the 2nd window is active and hide the timer (window)
+            win2_active = True
+            window.hide()
+
+            # Set the layout for the User's choice
+            layout2 = [[sg.Text('How do you wish to log your time?')],
+                       [sg.Button('Save with Comment'), sg.Button('Save without Comment')]]
+
+            # Reveal the 2nd window to be only active
+            window2 = sg.Window('Window 2', layout2)
+
+            while True:
+                event2, values2 = window2.read()
+                
+                # If the user decides to close the window
+                if event2 == sg.WIN_CLOSED:
+                    # Close the second window and unhide the timer
+                    window2.close()
+                    win2_active = False
+                    window.UnHide()
+                    break
+                
+                # Within the second window if either these buttons get clicked then do these operations
+                if event2 == 'Save with Comment':
+                    comment = sg.popup_get_text('Please enter your comment:', keep_on_top=True)
+                    saveAsCSV()
+                    saveAsEXCEL()
+                    sg.popup('Time has been logged')
+
+                    # Close the second window and unhide the timer
+                    window2.close()
+                    win2_active = False
+                    window.UnHide()
+
+                if event2 == 'Save without Comment':
+                    comment = ''
+                    saveAsCSV()           
+                    saveAsEXCEL()
+                    sg.popup('Time has been logged')
+
+                    # Close the second window and unhide the timer
+                    window2.close()
+                    win2_active = False
+                    window.UnHide()
+
+            # After logging the time disable the log button
             window['Log Run'].update(disabled = True)
-            window['Save with Comment'].update(visible = True)
-            window['Save without Comment'].update(visible = True)
-        
-        if event == 'Save with Comment':
 
-            window['Save with Comment'].update(visible = False)
-            window['Save without Comment'].update(visible = False)
-            window['Confirm'].update(visible = True)
-            window['comment'].update(visible = True)
+# --------------------------------------REDACTED----------------------------------------------------------- #       
+#        if event == 'Save with Comment':
 
-        if event == 'Confirm':
-            comment = str(values['comment'])
-            saveAsCSV()           
-            saveAsEXCEL()
-            window['Confirm'].update(visible = False)
-            window['comment'].update(visible = False)
+#            window['Save with Comment'].update(visible = False)
+#            window['Save without Comment'].update(visible = False)
+#            window['Confirm'].update(visible = True)
+#            window['comment'].update(visible = True)
+
+#        if event == 'Confirm':
+#            comment = str(values['comment'])
+#            saveAsCSV()           
+#            saveAsEXCEL()
+#            window['Confirm'].update(visible = False)
+#            window['comment'].update(visible = False)
 
 
-        if event == 'Save without Comment':
-            comment = ''
-            saveAsCSV()           
-            saveAsEXCEL()
-            window['Save with Comment'].update(visible = False)
-            window['Save without Comment'].update(visible = False)
+#        if event == 'Save without Comment':
+#            comment = ''
+#            saveAsCSV()           
+#            saveAsEXCEL()
+#            window['Save with Comment'].update(visible = False)
+#            window['Save without Comment'].update(visible = False)
+# --------------------------------------REDACTED----------------------------------------------------------- #
 
         # Debugging
         #print(event,values)
