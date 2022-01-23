@@ -60,7 +60,6 @@ layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text(currentTime, key = 'GUI_Time')],
            [sg.Button('Start'), sg.Button('Resume' , disabled = True), sg.Button('End') , sg.Button('Log Run' , disabled = True)],
            [sg.Button('Save with Comment', visible = False) , sg.Button('Save without Comment', visible = False)],
-           [sg.Text("Write your comment below, once finished press the 'Confirm' button. " ,visible = False , key = 'saveText')],
            [sg.Input(key = 'comment' , visible = False)],
            [sg.Button('Confirm' , visible = False)]
          ]
