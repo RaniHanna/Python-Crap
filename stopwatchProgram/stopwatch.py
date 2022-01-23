@@ -46,8 +46,15 @@ def saveAsCSV():
 def saveAsEXCEL():
     CSV_Saver = pd.read_csv('openCSV.csv')
     saveAsExcel = pd.ExcelWriter('badFileType.xlsx')
-    CSV_Saver.to_excel(saveAsExcel , index = False)
+    CSV_Saver.to_excel(saveAsExcel , sheet_name = 'excel', index = False)
+
+    # Setting column widths for readability reasons
+    saveAsExcel.sheets['excel'].set_column('A:A' , 24)
+    saveAsExcel.sheets['excel'].set_column('B:B' , 24)
+    saveAsExcel.sheets['excel'].set_column('C:C' , 30)
+    saveAsExcel.sheets['excel'].set_column('D:D' , 80)
     saveAsExcel.save()
+
 
 
 # GUI begins :)
