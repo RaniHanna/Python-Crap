@@ -59,7 +59,8 @@ def saveAsEXCEL():
 layout = [ [sg.Text("Please Press 'Start' to Begin Timing")],
            [sg.Text(currentTime, key = 'GUI_Time')],
            [sg.Button('Start'), sg.Button('Resume' , disabled = True), sg.Button('End') , sg.Button('Log Run' , disabled = True)],
-           [sg.Text("Successfully Saved" ,visible = False , key = 'saveText')],
+           [sg.Button('Save with Comment', visible = False) , sg.Button('Save without Comment', visible = False)],
+           [sg.Text("Write your comment below, once finished press the 'Confirm' button. " ,visible = False , key = 'saveText')],
            [sg.Input(key = 'comment' , visible = False)],
            [sg.Button('Confirm' , visible = False)]
          ]
@@ -163,7 +164,6 @@ if __name__ == "__main__":
             saveAsEXCEL()
             window['Confirm'].update(visible = False)
             window['comment'].update(visible = False)
-            
 
 
         if event == 'Save without Comment':
