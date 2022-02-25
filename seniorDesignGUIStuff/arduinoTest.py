@@ -4,6 +4,7 @@ import csv
 import os
 import PySimpleGUI as sg
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import random
 
 device = serial.Serial(port='COM3', baudrate = 9600, timeout=.1)
 x = 0
@@ -13,7 +14,15 @@ csvIndex = 0
 t = []
 V = []
 
-#while(x < 3.25):
+def makeGraph():
+    global savePlot
+    savePlot = plt.figure()
+    plt.plot(t , V)
+    plt.ylim((0 , 1))
+    plt.xlim((0 , 3))
+    global figManip
+    figManip = draw_figure(window['Plot'].TKCanvas , savePlot)
+
 def generateData():
     global csvIndex
     reading = device.readline().decode()
@@ -33,19 +42,16 @@ def updateData():
         t.append(i[0])
         V.append(i[1])
 
-def makeGraph():
-    global savePlot
-    savePlot = plt.figure()
-    plt.plot(t , V)
-    global figManip
-    figManip = draw_figure(window['Plot'].TKCanvas , savePlot)
-
 def updateGraph():
     global figManip
     global savePlot
     figManip.get_tk_widget().forget()
-    updateData()
-    plt.clf
+    #updateData()
+    t = [0 , 1 , 2 , 3]
+    V = [random.random() , random.random() , random.random() , random.random()]
+    plt.clf()
+    plt.ylim((0 , 1))
+    plt.xlim((0 , 3))
     plt.plot(t , V)
     figManip = draw_figure(window['Plot'].TKCanvas , savePlot)
 
@@ -64,12 +70,14 @@ window = sg.Window('Virtual Oscilloscope GUI', layout, force_toplevel=True, fina
 makeGraph()
 
 while(True):
-    event, values = window.read(timeout = 20)
+    event, values = window.read(timeout = 10)
     generateData()
-    if event == 'Update':
-        updateGraph()
+    #if event == 'Update':
+    updateGraph()
+
     if event == sg.WIN_CLOSED:
         graphCSV.close()
         os.remove('graphCSV.csv')
         break
+
 window.close()
