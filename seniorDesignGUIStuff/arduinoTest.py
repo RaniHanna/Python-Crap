@@ -1,15 +1,17 @@
 import matplotlib.pyplot as plt
 import serial
-import csv
+import pandas as pd
 import os
 import PySimpleGUI as sg
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import random
 
 device = serial.Serial(port='COM3', baudrate = 9600, timeout=.1)
-x = 0
+i = 0
 
 graphCSV = open('graphCSV.csv' , 'a')
+graphCSV.write('time , Voltage \n')
+graphCSV.close()
 csvIndex = 0
 t = []
 V = []
@@ -25,6 +27,9 @@ def makeGraph():
 
 def generateData():
     global csvIndex
+    global i
+    global t
+    global V
     reading = device.readline().decode()
     readingValid = bool(reading.strip())
     if(readingValid):
@@ -32,26 +37,35 @@ def generateData():
         x *= (5 / 1023)
         print(x)
         csvIndex += 1
-        graphCSV.write(str(csvIndex) + ", " + str(x) + "\n")
 
-# THIS IS THE PART THAT'S BROKEN, FIX HOW WE ADD ELEMENTS TO THE TIME/VOLTAGE ARRAYS
-def updateData():
-    plotCSV = open('graphCSV.csv' , 'r')
-    data = csv.reader(plotCSV, delimiter=',')
-    for i in data:
-        t.append(i[0])
-        V.append(i[1])
+        graphCSV = open('graphCSV.csv' , 'a')
+        graphCSV.write(str(csvIndex) + ", " + str(x) + "\n")
+        graphCSV.close()
+
+        data = pd.read_csv('graphCSV.csv')
+        z = [list(x) for x in data.values]
+        
+        t.append(z[i][0])
+        V.append(z[i][1])
+        print(V)
+        i += 1
 
 def updateGraph():
     global figManip
     global savePlot
+    global t
+    global V
     figManip.get_tk_widget().forget()
-    #updateData()
+    generateData()
+    '''
     t = [0 , 1 , 2 , 3]
     V = [random.random() , random.random() , random.random() , random.random()]
+    '''
     plt.clf()
+    '''
     plt.ylim((0 , 1))
     plt.xlim((0 , 3))
+    '''
     plt.plot(t , V)
     figManip = draw_figure(window['Plot'].TKCanvas , savePlot)
 
@@ -70,7 +84,7 @@ window = sg.Window('Virtual Oscilloscope GUI', layout, force_toplevel=True, fina
 makeGraph()
 
 while(True):
-    event, values = window.read(timeout = 10)
+    event, values = window.read(timeout = 100)
     generateData()
     #if event == 'Update':
     updateGraph()
@@ -81,3 +95,4 @@ while(True):
         break
 
 window.close()
+os.remove('graphCSV.csv')
