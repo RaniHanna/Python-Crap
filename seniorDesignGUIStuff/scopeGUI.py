@@ -7,7 +7,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import time
 
 # Establishes serial comms w/ MCU 
-device = serial.Serial(port='COM3', baudrate = 9600, timeout=.1) 
+device = serial.Serial(port='COM4', baudrate = 115200, timeout=.1) 
 i = 0
 
 # Creates CSV and writes headers
@@ -43,6 +43,8 @@ def makeGraph():
     plt.plot(t , V)
     plt.ylim((0 , 5))
     plt.xlim((0 , len(t)))
+    plt.xlabel('Sample #')
+    plt.ylabel('Voltage (V)')
     global figManip
     figManip = draw_figure(window['Plot'].TKCanvas , savePlot)
 
@@ -55,7 +57,7 @@ def generateData():
     readingValid = bool(reading.strip())
     if(readingValid):
         x = int(reading.strip())
-        x *= (5 / 1023)
+        x *= (3.3 / 1023)
         print(x)
         csvIndex += 1
         '''
@@ -73,7 +75,6 @@ def generateData():
         
         t.append(z[i][0])
         V.append(z[i][1])
-        print(t)
         i += 1
 
 def updateGraph():
@@ -91,6 +92,8 @@ def updateGraph():
     plt.clf()
     plt.ylim((0 , 5))
     plt.xlim((0 , len(t)))
+    plt.xlabel('Sample #')
+    plt.ylabel('Voltage (V)')
     plt.plot(t , V)
     figManip = draw_figure(window['Plot'].TKCanvas , savePlot)
 
@@ -109,7 +112,8 @@ window = sg.Window('Virtual Oscilloscope GUI', layout, force_toplevel=True, fina
 makeGraph()
 
 while(True):
-    event, values = window.read(timeout = 50)
+    event, values = window.read(timeout = .001)
+    # timeout value = time to wait until read in ms
 
     # NOTE: no "top level" error when the updateGraph() fct is called via 'Update' key instead of continuous calling
 
