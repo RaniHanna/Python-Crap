@@ -1,0 +1,180 @@
+Serial Timeout = 0.1
+Serial Delay = 100
+Serial Baud = 115200
+Window Timeout = 0.0001
+Stop Value of t = 100
+Boot Time = 0:00:00.507101
+Time to Reach 100 Samples = 0:00:09.532901
+Sampling Frequency = 10.489986206717136
+
+Serial Timeout = 0.1
+Serial Delay = 100
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 100
+Boot Time = 0:00:00.496383
+Time to Reach 100 Samples = 0:00:09.489790
+Sampling Frequency = 10.537640980464268
+
+Serial Timeout = 0.1
+Serial Delay = 100
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 50
+Boot Time = 0:00:00.496001
+Time to Reach 50 Samples = 0:00:04.508899
+Sampling Frequency = 11.089181638355615
+
+Serial Timeout = 0.1
+Serial Delay = 10
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 50
+Boot Time = 0:00:00.502920
+Time to Reach 50 Samples = 0:00:01.677817
+Sampling Frequency = 29.800627839627328
+
+Serial Timeout = 0.1
+Serial Delay = 10
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 50
+Boot Time = 0:00:00.504232
+Time to Reach 50 Samples = 0:00:01.681246
+Sampling Frequency = 29.739847708187856
+
+Serial Timeout = 0.1
+Serial Delay = 60
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 50
+Boot Time = 0:00:00.504102
+Time to Reach 50 Samples = 0:00:01.668984
+Sampling Frequency = 29.958345915838617
+
+Serial Timeout = 0.1
+Serial Delay = 60
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.512591
+Time to Reach 200 Samples = 0:00:07.352823
+Sampling Frequency = 27.200437165426123
+
+Serial Timeout = 0.1
+Serial Delay = 80
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.505275
+Time to Reach 200 Samples = 0:00:15.496039
+Sampling Frequency = 12.906524047855068
+
+Serial Timeout = 0.1
+Serial Delay = 70
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.504672
+Time to Reach 200 Samples = 0:00:13.541999
+Sampling Frequency = 14.768868318480898
+
+Serial Timeout = 0.1
+Serial Delay = 65
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.496905
+Time to Reach 200 Samples = 0:00:12.560952
+Sampling Frequency = 15.922360024940785
+
+Serial Timeout = 0.1
+Serial Delay = 61
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.502909
+Time to Reach 200 Samples = 0:00:11.756659
+Sampling Frequency = 17.011635703646757
+
+Serial Timeout = 0.1
+Serial Delay = 59
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.500551
+Time to Reach 200 Samples = 0:00:11.313456
+Sampling Frequency = 17.678064068132674
+
+Serial Timeout = 0.1
+Serial Delay = 25
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.509862
+Time to Reach 200 Samples = 0:00:07.343801
+Sampling Frequency = 27.233853422771123
+
+Serial Timeout = 0.1
+Serial Delay = 50
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.500922
+Time to Reach 200 Samples = 0:00:09.552093
+Sampling Frequency = 20.93781959618693
+
+Serial Timeout = 0.1
+Serial Delay = 35
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.501878
+Time to Reach 200 Samples = 0:00:07.404301
+Sampling Frequency = 27.011327605401238
+
+Serial Timeout = 0.1
+Serial Delay = 42
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.507869
+Time to Reach 200 Samples = 0:00:07.916294
+Sampling Frequency = 25.26434718063781
+
+Serial Timeout = 0.1
+Serial Delay = 40
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.507705
+Time to Reach 200 Samples = 0:00:07.522892
+Sampling Frequency = 26.5855205684197
+
+Serial Timeout = 0.1
+Serial Delay = 37
+Serial Baud = 9600
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.509428
+Time to Reach 200 Samples = 0:00:07.355494
+Sampling Frequency = 27.19055987266117
+
+Serial Timeout = 0.1
+Serial Delay = 55
+Serial Baud = 115200
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.504795
+Time to Reach 200 Samples = 0:00:10.514544
+Sampling Frequency = 19.021271868756266
+
+Serial Timeout = 0.1
+Serial Delay = 55
+Serial Baud = 115200
+Window Timeout = 0.0001
+Stop Value of t = 200
+Boot Time = 0:00:00.505143
+Time to Reach 200 Samples = 0:00:10.523836
+Sampling Frequency = 19.00447707470926
+

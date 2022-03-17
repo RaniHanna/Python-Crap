@@ -9,12 +9,14 @@ from datetime import datetime, timedelta
 
 # Variables for timing testing
 serialTimeout = .1
-windowTimeout = .001
-tValStop = 100
+windowTimeout = .0001
+tValStop = 200
 startTime = datetime.now()
+serialDelay = 55 
+serialBaud = 115200 # DOES NOT AFFECT DATA TRANSMISSION SPEED, TEENSY IS A USB-NATIVE DEVICE! 
 
 # Establishes serial comms w/ MCU 
-device = serial.Serial(port='COM4', baudrate = 115200, timeout=.1) 
+device = serial.Serial(port='COM4', baudrate = serialBaud, timeout=.1) 
 i = 0
 
 # Creates CSV and writes headers
@@ -25,6 +27,8 @@ graphCSV.close()
 
 timingTests = open('timingTests.txt' , 'a')
 timingTests.write('Serial Timeout = ' + str(serialTimeout) + '\n'
+                  'Serial Delay = ' + str(serialDelay) + '\n'
+                  'Serial Baud = ' + str(serialBaud) + '\n'
                   'Window Timeout = ' + str(windowTimeout) + '\n'
                   'Stop Value of t = ' + str(tValStop) + '\n')
 
@@ -137,21 +141,21 @@ while(True):
     if runningFlag == True:
         generateData()
         updateGraph()
-        '''
-        if len(t) == 10:
+        if len(t) == 4:
             bootTime = datetime.now() - startTime
             bootTimeDTOB = datetime.now()
             print('bootTime')
         if len(t) % tValStop == 0:
             timeToSample = datetime.now() - bootTimeDTOB
+            samplingFreq = tValStop / timeToSample.total_seconds()
             timingTests.write('Boot Time = ' + str(bootTime) + '\n'
                               'Time to Reach ' + str(tValStop) + ' Samples = ' + str(timeToSample) + '\n'
+                              'Sampling Frequency = ' + str(samplingFreq) + '\n'
                               '\n')
             timingTests.close()
             graphCSV.close()
             os.remove('graphCSV.csv')
             break
-        '''
 
     if event == sg.WIN_CLOSED:
         graphCSV.close()
