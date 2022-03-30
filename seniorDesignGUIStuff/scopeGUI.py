@@ -1,4 +1,3 @@
-from re import A, L
 import matplotlib.pyplot as plt
 import serial
 import pandas as pd
@@ -52,6 +51,7 @@ def makeGraph():
     global savePlot
     global t
     global V
+    global ax
     savePlot = plt.figure()
     plt.plot(t , V)
     plt.ylim((0 , 5))
@@ -66,6 +66,8 @@ def generateData():
     global i
     global t
     global V
+    global voltsPerDiv
+    global timeDivMax
     reading = device.readline().decode()
     readingValid = bool(reading.strip())
     if(readingValid):
@@ -85,7 +87,6 @@ def generateData():
 
         data = pd.read_csv('graphCSV.csv')
         z = [list(x) for x in data.values]
-        
         t.append(z[i][0])
         V.append(z[i][1])
         i += 1
@@ -95,6 +96,9 @@ def updateGraph():
     global savePlot
     global t
     global V
+    global i
+    global voltsPerDiv
+    global timePerDiv
     figManip.get_tk_widget().forget()
     generateData()
     '''
@@ -103,10 +107,11 @@ def updateGraph():
     V = [random.random() , random.random() , random.random() , random.random()]
     '''
     plt.clf()
-    plt.ylim((0 , 5))
+    plt.ylim((-1 * voltsPerDiv , voltsPerDiv))
+    #plt.xlim((i , i + timePerDiv))
     plt.xlabel('Sample #')
     plt.ylabel('Voltage (V)')
-    plt.plot(t , V)
+    plt.plot(t[i - timePerDiv : i] , V[i - timePerDiv : i])
     figManip = draw_figure(window['Plot'].TKCanvas , savePlot)
 
 # ------------------------------- GUI Helper Function -------------------------------
@@ -118,6 +123,8 @@ def draw_figure(canvas, figure, loc=(0, 0)):
 # ------------------------------- Beginning of GUI CODE -------------------------------
 layout = [[sg.Canvas(key = 'Plot')],
           [sg.Button('Start')],[sg.Button('Stop')],
+          [sg.Text('Volts/div') , sg.Slider(orientation = 'horizontal' , default_value = 5 , range = (.5 , 15) , resolution= .5 , key = 'vScale')],
+          [sg.Text('Time/div') , sg.Slider(orientation = 'horizontal' , default_value = 50 , range = (0 , 150) , resolution= 1 , key = 'tScale')],
          ]
 window = sg.Window('Virtual Oscilloscope GUI', layout, force_toplevel=True, finalize=True)
 
@@ -133,8 +140,11 @@ while(True):
         runningFlag = True
     if event == 'Stop':
         runningFlag = False
+        voltsPerDiv = int(values['vScale'])
 
     if runningFlag == True:
+        voltsPerDiv = int(values['vScale'])
+        timePerDiv = int(values['tScale'])
         generateData()
         updateGraph()
         '''
