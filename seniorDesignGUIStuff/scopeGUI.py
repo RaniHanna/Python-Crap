@@ -107,7 +107,7 @@ def updateGraph():
     V = [random.random() , random.random() , random.random() , random.random()]
     '''
     plt.clf()
-    plt.ylim((-1 * voltsPerDiv , voltsPerDiv))
+    plt.ylim((-1 , voltsPerDiv))
     #plt.xlim((i , i + timePerDiv))
     plt.xlabel('Sample #')
     plt.ylabel('Voltage (V)')
@@ -124,7 +124,7 @@ def draw_figure(canvas, figure, loc=(0, 0)):
 layout = [[sg.Canvas(key = 'Plot')],
           [sg.Button('Start')],[sg.Button('Stop')],
           [sg.Text('Volts/div') , sg.Slider(orientation = 'horizontal' , default_value = 5 , range = (.5 , 15) , resolution= .5 , key = 'vScale')],
-          [sg.Text('Time/div') , sg.Slider(orientation = 'horizontal' , default_value = 50 , range = (0 , 150) , resolution= 1 , key = 'tScale')],
+          [sg.Text('Time/div') , sg.Slider(orientation = 'horizontal' , default_value = 50 , range = (1 , 150) , resolution= 1 , key = 'tScale')],
          ]
 window = sg.Window('Virtual Oscilloscope GUI', layout, force_toplevel=True, finalize=True)
 
