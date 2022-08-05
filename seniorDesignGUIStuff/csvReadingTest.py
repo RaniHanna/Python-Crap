@@ -36,6 +36,7 @@ while(x < 3.25):
         data = pd.read_csv('graphCSV.csv')
         z = [list(x) for x in data.values]
         
+        print(z)
         t.append(z[i][0])
         V.append(z[i][1])
         print(V)

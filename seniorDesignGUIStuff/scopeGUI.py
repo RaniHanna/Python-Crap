@@ -13,7 +13,7 @@ tValStop = 100
 startTime = datetime.now()
 
 # Establishes serial comms w/ MCU 
-device = serial.Serial(port='COM4', baudrate = 115200, timeout=.1) 
+device = serial.Serial(port='COM7', baudrate = 115200, timeout=.1) 
 i = 0
 
 # Creates CSV and writes headers
@@ -72,7 +72,7 @@ def generateData():
     readingValid = bool(reading.strip())
     if(readingValid):
         x = int(reading.strip())
-        x *= (3.3 / 1023)
+        x *= (3.3 / 255)
         print(x)
         csvIndex += 1
         '''
