@@ -1,0 +1,816 @@
+set_property PACKAGE_PIN AE32[get_ports REF_CLK]
+set_property IOSTANDARD LVCMOS[get_ports REF_CLK]
+
+set_property PACKAGE_PIN C32[get_ports MODE]
+set_property IOSTANDARD LVCMOS[get_ports MODE]
+
+set_property PACKAGE_PIN D31[get_ports JTAG_TCK]
+set_property IOSTANDARD LVCMOS[get_ports JTAG_TCK]
+
+set_property PACKAGE_PIN B31[get_ports JTAG_TDI]
+set_property IOSTANDARD LVCMOS[get_ports JTAG_TDI]
+
+set_property PACKAGE_PIN C31[get_ports JTAG_TDO]
+set_property IOSTANDARD LVCMOS[get_ports JTAG_TDO]
+
+set_property PACKAGE_PIN D30[get_ports JTAG_TMS]
+set_property IOSTANDARD LVCMOS[get_ports JTAG_TMS]
+
+set_property PACKAGE_PIN V1[get_ports STX_0_P]
+set_property IOSTANDARD JESD204B[get_ports STX_0_P]
+
+set_property PACKAGE_PIN U3[get_ports STX_0_N]
+set_property IOSTANDARD JESD204B[get_ports STX_0_N]
+
+set_property PACKAGE_PIN T1[get_ports STX_1_P]
+set_property IOSTANDARD JESD204B[get_ports STX_1_P]
+
+set_property PACKAGE_PIN R3[get_ports STX_1_N]
+set_property IOSTANDARD JESD204B[get_ports STX_1_N]
+
+set_property PACKAGE_PIN V2[get_ports STX_2_P]
+set_property IOSTANDARD JESD204B[get_ports STX_2_P]
+
+set_property PACKAGE_PIN U4[get_ports STX_2_N]
+set_property IOSTANDARD JESD204B[get_ports STX_2_N]
+
+set_property PACKAGE_PIN T2[get_ports STX_3_P]
+set_property IOSTANDARD JESD204B[get_ports STX_3_P]
+
+set_property PACKAGE_PIN R4[get_ports STX_3_N]
+set_property IOSTANDARD JESD204B[get_ports STX_3_N]
+
+set_property PACKAGE_PIN V6[get_ports SRX_0_P]
+set_property IOSTANDARD JESD204B[get_ports SRX_0_P]
+
+set_property PACKAGE_PIN U8[get_ports SRX_0_N]
+set_property IOSTANDARD JESD204B[get_ports SRX_0_N]
+
+set_property PACKAGE_PIN T6[get_ports SRX_1_P]
+set_property IOSTANDARD JESD204B[get_ports SRX_1_P]
+
+set_property PACKAGE_PIN R8[get_ports SRX_1_N]
+set_property IOSTANDARD JESD204B[get_ports SRX_1_N]
+
+set_property PACKAGE_PIN V7[get_ports SRX_2_P]
+set_property IOSTANDARD JESD204B[get_ports SRX_2_P]
+
+set_property PACKAGE_PIN U9[get_ports SRX_2_N]
+set_property IOSTANDARD JESD204B[get_ports SRX_2_N]
+
+set_property PACKAGE_PIN T7[get_ports SRX_3_P]
+set_property IOSTANDARD JESD204B[get_ports SRX_3_P]
+
+set_property PACKAGE_PIN R9[get_ports SRX_3_N]
+set_property IOSTANDARD JESD204B[get_ports SRX_3_N]
+
+set_property PACKAGE_PIN L12[get_ports AFE_GTY_CLK_P]
+set_property IOSTANDARD LVDS[get_ports AFE_GTY_CLK_P]
+
+set_property PACKAGE_PIN L13[get_ports AFE_GTY_CLK_N]
+set_property IOSTANDARD nan[get_ports AFE_GTY_CLK_N]
+
+set_property PACKAGE_PIN M21[get_ports DOWNLINK_DATA_4]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_4]
+
+set_property PACKAGE_PIN M20[get_ports DOWNLINK_DATA_5]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_5]
+
+set_property PACKAGE_PIN G21[get_ports DOWNLINK_DATA_6]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_6]
+
+set_property PACKAGE_PIN H21[get_ports DOWNLINK_DATA_7]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_7]
+
+set_property PACKAGE_PIN L17[get_ports KEYSTREAM_CLK]
+set_property IOSTANDARD LVCMOS[get_ports KEYSTREAM_CLK]
+
+set_property PACKAGE_PIN M17[get_ports KEYSTREAM_EN]
+set_property IOSTANDARD LVCMOS[get_ports KEYSTREAM_EN]
+
+set_property PACKAGE_PIN L19[get_ports KEYSTREAM_DATA]
+set_property IOSTANDARD LVCMOS[get_ports KEYSTREAM_DATA]
+
+set_property PACKAGE_PIN M19[get_ports TOD_CLK]
+set_property IOSTANDARD LVCMOS[get_ports TOD_CLK]
+
+set_property PACKAGE_PIN K17[get_ports TOD_EN]
+set_property IOSTANDARD LVCMOS[get_ports TOD_EN]
+
+set_property PACKAGE_PIN L18[get_ports TOD_DATA]
+set_property IOSTANDARD LVCMOS[get_ports TOD_DATA]
+
+set_property PACKAGE_PIN K21[get_ports PSM_TEMP_SENSE_IN]
+set_property IOSTANDARD LVCMOS[get_ports PSM_TEMP_SENSE_IN]
+
+set_property PACKAGE_PIN L20[get_ports PSM_TEMP_SENSE_OUT]
+set_property IOSTANDARD LVCMOS[get_ports PSM_TEMP_SENSE_OUT]
+
+set_property PACKAGE_PIN J18[get_ports JESD_SYNC_OUT0]
+set_property IOSTANDARD LVCMOS[get_ports JESD_SYNC_OUT0]
+
+set_property PACKAGE_PIN K18[get_ports JESD_SYNC_IN0]
+set_property IOSTANDARD LVCMOS[get_ports JESD_SYNC_IN0]
+
+set_property PACKAGE_PIN J19[get_ports AFE_INTERUPT_1]
+set_property IOSTANDARD LVCMOS[get_ports AFE_INTERUPT_1]
+
+set_property PACKAGE_PIN K20[get_ports AFE_REST_N]
+set_property IOSTANDARD LVCMOS[get_ports AFE_REST_N]
+
+set_property PACKAGE_PIN H18[get_ports IF_TEMP_SENSE_IN]
+set_property IOSTANDARD LVCMOS[get_ports IF_TEMP_SENSE_IN]
+
+set_property PACKAGE_PIN H17[get_ports IF_TEMP_SENSE_OUT]
+set_property IOSTANDARD LVCMOS[get_ports IF_TEMP_SENSE_OUT]
+
+set_property PACKAGE_PIN J21[get_ports RF_TEMP_SENSE_IN]
+set_property IOSTANDARD LVCMOS[get_ports RF_TEMP_SENSE_IN]
+
+set_property PACKAGE_PIN J20[get_ports RF_TEMP_SENSE_OUT]
+set_property IOSTANDARD LVCMOS[get_ports RF_TEMP_SENSE_OUT]
+
+set_property PACKAGE_PIN L37[get_ports CTRL_CLK]
+set_property IOSTANDARD LVCMOS[get_ports CTRL_CLK]
+
+set_property PACKAGE_PIN M37[get_ports CTRL_EN]
+set_property IOSTANDARD LVCMOS[get_ports CTRL_EN]
+
+set_property PACKAGE_PIN G37[get_ports CTRL_DATA]
+set_property IOSTANDARD LVCMOS[get_ports CTRL_DATA]
+
+set_property PACKAGE_PIN G36[get_ports STATUS_CLK]
+set_property IOSTANDARD LVCMOS[get_ports STATUS_CLK]
+
+set_property PACKAGE_PIN M34[get_ports STATUS_EN]
+set_property IOSTANDARD LVCMOS[get_ports STATUS_EN]
+
+set_property PACKAGE_PIN N34[get_ports STATUS_DATA]
+set_property IOSTANDARD LVCMOS[get_ports STATUS_DATA]
+
+set_property PACKAGE_PIN M36[get_ports UPLINK_CLK]
+set_property IOSTANDARD LVCMOS[get_ports UPLINK_CLK]
+
+set_property PACKAGE_PIN M35[get_ports UPLINK_EN]
+set_property IOSTANDARD LVCMOS[get_ports UPLINK_EN]
+
+set_property PACKAGE_PIN K33[get_ports UPLINK_DATA]
+set_property IOSTANDARD LVCMOS[get_ports UPLINK_DATA]
+
+set_property PACKAGE_PIN L33[get_ports DOWNLINK_CLK]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_CLK]
+
+set_property PACKAGE_PIN J36[get_ports DOWNLINK_EN]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_EN]
+
+set_property PACKAGE_PIN K37[get_ports DOWNLINK_DATA_0]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_0]
+
+set_property PACKAGE_PIN K35[get_ports DOWNLINK_DATA_1]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_1]
+
+set_property PACKAGE_PIN L34[get_ports DOWNLINK_DATA_2]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_2]
+
+set_property PACKAGE_PIN K36[get_ports DOWNLINK_DATA_3]
+set_property IOSTANDARD LVCMOS[get_ports DOWNLINK_DATA_3]
+
+set_property PACKAGE_PIN L35[get_ports MDM_KIV_PWR_ENBL]
+set_property IOSTANDARD LVCMOS[get_ports MDM_KIV_PWR_ENBL]
+
+set_property PACKAGE_PIN H34[get_ports TA_HRST]
+set_property IOSTANDARD LVCMOS[get_ports TA_HRST]
+
+set_property PACKAGE_PIN J33[get_ports GNED]
+set_property IOSTANDARD LVCMOS[get_ports GNED]
+
+set_property PACKAGE_PIN H37[get_ports Time_Mark (1PPS)]
+set_property IOSTANDARD LVCMOS[get_ports Time_Mark (1PPS)]
+
+set_property PACKAGE_PIN H36[get_ports Test_Enable]
+set_property IOSTANDARD LVCMOS[get_ports Test_Enable]
+
+set_property PACKAGE_PIN J35[get_ports PWR_GD]
+set_property IOSTANDARD LVTTL[get_ports PWR_GD]
+
+set_property PACKAGE_PIN J34[get_ports PWR_EN]
+set_property IOSTANDARD LVTTL[get_ports PWR_EN]
+
+set_property PACKAGE_PIN F34[get_ports QSPI_UPR_CLK]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_UPR_CLK]
+
+set_property PACKAGE_PIN F32[get_ports QSPI_UPR_CS_b]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_UPR_CS_b]
+
+set_property PACKAGE_PIN E33[get_ports QSPI_UPR_IO[0]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_UPR_IO[0]]
+
+set_property PACKAGE_PIN G34[get_ports QSPI_UPR_IO[1]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_UPR_IO[1]]
+
+set_property PACKAGE_PIN H33[get_ports QSPI_UPR_IO[2]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_UPR_IO[2]]
+
+set_property PACKAGE_PIN F33[get_ports QSPI_UPR_IO[3]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_UPR_IO[3]]
+
+set_property PACKAGE_PIN N31[get_ports QSPI_LWR_CLK]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_LWR_CLK]
+
+set_property PACKAGE_PIN H32[get_ports QSPI_LWR_CS_b]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_LWR_CS_b]
+
+set_property PACKAGE_PIN K32[get_ports QSPI_LWR_IO[0]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_LWR_IO[0]]
+
+set_property PACKAGE_PIN L32[get_ports QSPI_LWR_IO[1]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_LWR_IO[1]]
+
+set_property PACKAGE_PIN M32[get_ports QSPI_LWR_IO[2]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_LWR_IO[2]]
+
+set_property PACKAGE_PIN N32[get_ports QSPI_LWR_IO[3]]
+set_property IOSTANDARD LVCMOS[get_ports QSPI_LWR_IO[3]]
+
+set_property PACKAGE_PIN G30[get_ports SPI_PLL_CSB]
+set_property IOSTANDARD LVCMOS[get_ports SPI_PLL_CSB]
+
+set_property PACKAGE_PIN J30[get_ports SPI_AFE_CS]
+set_property IOSTANDARD LVCMOS[get_ports SPI_AFE_CS]
+
+set_property PACKAGE_PIN K30[get_ports SPI_LMK_CS]
+set_property IOSTANDARD LVCMOS[get_ports SPI_LMK_CS]
+
+set_property PACKAGE_PIN F19[get_ports SPI_ADC_CS0]
+set_property IOSTANDARD LVCMOS[get_ports SPI_ADC_CS0]
+
+set_property PACKAGE_PIN G19[get_ports SPI_ADC_CS1]
+set_property IOSTANDARD LVCMOS[get_ports SPI_ADC_CS1]
+
+set_property PACKAGE_PIN F30[get_ports SPI_CLK]
+set_property IOSTANDARD LVCMOS[get_ports SPI_CLK]
+
+set_property PACKAGE_PIN M30[get_ports SPI_DIN]
+set_property IOSTANDARD LVCMOS[get_ports SPI_DIN]
+
+set_property PACKAGE_PIN L30[get_ports SPI_DOUT]
+set_property IOSTANDARD LVCMOS[get_ports SPI_DOUT]
+
+set_property PACKAGE_PIN F18[get_ports S#]
+set_property IOSTANDARD LVCMOS[get_ports S#]
+
+set_property PACKAGE_PIN D19[get_ports C]
+set_property IOSTANDARD LVCMOS[get_ports C]
+
+set_property PACKAGE_PIN D18[get_ports DQ[1]]
+set_property IOSTANDARD LVCMOS[get_ports DQ[1]]
+
+set_property PACKAGE_PIN E18[get_ports DQ[0]]
+set_property IOSTANDARD LVCMOS[get_ports DQ[0]]
+
+set_property PACKAGE_PIN A19[get_ports UART_TX]
+set_property IOSTANDARD LVCMOS[get_ports UART_TX]
+
+set_property PACKAGE_PIN A20[get_ports UART_RX]
+set_property IOSTANDARD LVCMOS[get_ports UART_RX]
+
+set_property PACKAGE_PIN AF46[get_ports DDR4_ADDR_0]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_0]
+
+set_property PACKAGE_PIN AF47[get_ports DDR4_ADDR_1]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_1]
+
+set_property PACKAGE_PIN AK45[get_ports DDR4_ADDR_2]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_2]
+
+set_property PACKAGE_PIN AK44[get_ports DDR4_ADDR_3]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_3]
+
+set_property PACKAGE_PIN AE45[get_ports DDR4_ADDR_4]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_4]
+
+set_property PACKAGE_PIN AF44[get_ports DDR4_ADDR_5]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_5]
+
+set_property PACKAGE_PIN AF40[get_ports DDR4_ADDR_6]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_6]
+
+set_property PACKAGE_PIN AF39[get_ports DDR4_ADDR_7]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_7]
+
+set_property PACKAGE_PIN AD40[get_ports DDR4_ADDR_8]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_8]
+
+set_property PACKAGE_PIN AC39[get_ports DDR4_ADDR_9]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_9]
+
+set_property PACKAGE_PIN AH41[get_ports DDR4_ADDR_10]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_10]
+
+set_property PACKAGE_PIN AH40[get_ports DDR4_ADDR_11]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_11]
+
+set_property PACKAGE_PIN AF41[get_ports DDR4_ADDR_12]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_12]
+
+set_property PACKAGE_PIN AG41[get_ports DDR4_ADDR_13]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_13]
+
+set_property PACKAGE_PIN AJ40[get_ports DDR4_ADDR_14]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_14]
+
+set_property PACKAGE_PIN AH39[get_ports DDR4_ADDR_15]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_ADDR_15]
+
+set_property PACKAGE_PIN AD41[get_ports DDR4_DQ_0]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_0]
+
+set_property PACKAGE_PIN AE40[get_ports DDR4_DQ_1]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_1]
+
+set_property PACKAGE_PIN AF37[get_ports DDR4_DQ_2]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_2]
+
+set_property PACKAGE_PIN AE38[get_ports DDR4_DQ_3]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_3]
+
+set_property PACKAGE_PIN AD37[get_ports DDR4_DQ_4]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_4]
+
+set_property PACKAGE_PIN AC37[get_ports DDR4_DQ_5]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_5]
+
+set_property PACKAGE_PIN AE46[get_ports DDR4_DQ_6]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_6]
+
+set_property PACKAGE_PIN AD45[get_ports DDR4_DQ_7]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_7]
+
+set_property PACKAGE_PIN AH38[get_ports DDR4_DQ_8]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_8]
+
+set_property PACKAGE_PIN AG37[get_ports DDR4_DQ_9]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_9]
+
+set_property PACKAGE_PIN AF38[get_ports DDR4_DQ_10]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_10]
+
+set_property PACKAGE_PIN AG39[get_ports DDR4_DQ_11]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_11]
+
+set_property PACKAGE_PIN AJ38[get_ports DDR4_DQ_12]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_12]
+
+set_property PACKAGE_PIN AH37[get_ports DDR4_DQ_13]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_13]
+
+set_property PACKAGE_PIN AD39[get_ports DDR4_DQ_14]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_14]
+
+set_property PACKAGE_PIN AD38[get_ports DDR4_DQ_15]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_15]
+
+set_property PACKAGE_PIN AF43[get_ports DDR4_DQ_16]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_16]
+
+set_property PACKAGE_PIN AE42[get_ports DDR4_DQ_17]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_17]
+
+set_property PACKAGE_PIN AD43[get_ports DDR4_DQ_18]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_18]
+
+set_property PACKAGE_PIN AD42[get_ports DDR4_DQ_19]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_19]
+
+set_property PACKAGE_PIN AG43[get_ports DDR4_DQ_20]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_20]
+
+set_property PACKAGE_PIN AF42[get_ports DDR4_DQ_21]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_21]
+
+set_property PACKAGE_PIN AJ47[get_ports DDR4_DQ_22]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_22]
+
+set_property PACKAGE_PIN AH47[get_ports DDR4_DQ_23]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_23]
+
+set_property PACKAGE_PIN AG46[get_ports DDR4_DQ_24]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_24]
+
+set_property PACKAGE_PIN AH46[get_ports DDR4_DQ_25]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_25]
+
+set_property PACKAGE_PIN AK47[get_ports DDR4_DQ_26]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_26]
+
+set_property PACKAGE_PIN AK46[get_ports DDR4_DQ_27]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_27]
+
+set_property PACKAGE_PIN AE47[get_ports DDR4_DQ_28]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_28]
+
+set_property PACKAGE_PIN AD47[get_ports DDR4_DQ_29]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_29]
+
+set_property PACKAGE_PIN AG44[get_ports DDR4_DQ_30]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_30]
+
+set_property PACKAGE_PIN AH43[get_ports DDR4_DQ_31]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_31]
+
+set_property PACKAGE_PIN AE44[get_ports DDR4_DQ_32]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_32]
+
+set_property PACKAGE_PIN AD44[get_ports DDR4_DQ_33]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_33]
+
+set_property PACKAGE_PIN AJ45[get_ports DDR4_DQ_34]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_34]
+
+set_property PACKAGE_PIN AJ44[get_ports DDR4_DQ_35]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_35]
+
+set_property PACKAGE_PIN AG45[get_ports DDR4_DQ_36]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_36]
+
+set_property PACKAGE_PIN AH45[get_ports DDR4_DQ_37]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_37]
+
+set_property PACKAGE_PIN AP47[get_ports DDR4_DQ_38]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_38]
+
+set_property PACKAGE_PIN AN46[get_ports DDR4_DQ_39]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_39]
+
+set_property PACKAGE_PIN AU46[get_ports DDR4_DQ_40]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_40]
+
+set_property PACKAGE_PIN AU45[get_ports DDR4_DQ_41]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_41]
+
+set_property PACKAGE_PIN AR45[get_ports DDR4_DQ_42]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_42]
+
+set_property PACKAGE_PIN AR44[get_ports DDR4_DQ_43]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_43]
+
+set_property PACKAGE_PIN AK41[get_ports DDR4_DQ_44]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_44]
+
+set_property PACKAGE_PIN AK40[get_ports DDR4_DQ_45]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_45]
+
+set_property PACKAGE_PIN AK38[get_ports DDR4_DQ_46]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_46]
+
+set_property PACKAGE_PIN AK37[get_ports DDR4_DQ_47]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_47]
+
+set_property PACKAGE_PIN AM41[get_ports DDR4_DQ_48]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_48]
+
+set_property PACKAGE_PIN AL41[get_ports DDR4_DQ_49]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_49]
+
+set_property PACKAGE_PIN AK39[get_ports DDR4_DQ_50]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_50]
+
+set_property PACKAGE_PIN AL39[get_ports DDR4_DQ_51]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_51]
+
+set_property PACKAGE_PIN AM40[get_ports DDR4_DQ_52]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_52]
+
+set_property PACKAGE_PIN AM39[get_ports DDR4_DQ_53]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_53]
+
+set_property PACKAGE_PIN AM38[get_ports DDR4_DQ_54]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_54]
+
+set_property PACKAGE_PIN AL37[get_ports DDR4_DQ_55]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_55]
+
+set_property PACKAGE_PIN AP41[get_ports DDR4_DQ_56]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_56]
+
+set_property PACKAGE_PIN AP40[get_ports DDR4_DQ_57]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_57]
+
+set_property PACKAGE_PIN AN38[get_ports DDR4_DQ_58]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_58]
+
+set_property PACKAGE_PIN AM37[get_ports DDR4_DQ_59]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_59]
+
+set_property PACKAGE_PIN AL47[get_ports DDR4_DQ_60]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_60]
+
+set_property PACKAGE_PIN AL46[get_ports DDR4_DQ_61]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_61]
+
+set_property PACKAGE_PIN AT39[get_ports DDR4_DQ_62]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_62]
+
+set_property PACKAGE_PIN AR39[get_ports DDR4_DQ_63]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_63]
+
+set_property PACKAGE_PIN AR41[get_ports DDR4_DQ_64]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_64]
+
+set_property PACKAGE_PIN AR42[get_ports DDR4_DQ_65]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_65]
+
+set_property PACKAGE_PIN AT41[get_ports DDR4_DQ_66]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_66]
+
+set_property PACKAGE_PIN AT40[get_ports DDR4_DQ_67]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_67]
+
+set_property PACKAGE_PIN AN40[get_ports DDR4_DQ_68]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_68]
+
+set_property PACKAGE_PIN AP39[get_ports DDR4_DQ_69]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_69]
+
+set_property PACKAGE_PIN AN43[get_ports DDR4_DQ_70]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_70]
+
+set_property PACKAGE_PIN AM43[get_ports DDR4_DQ_71]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_DQ_71]
+
+set_property PACKAGE_PIN AL42[get_ports DBI_0_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_0_n]
+
+set_property PACKAGE_PIN AK42[get_ports DBI_1_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_1_n]
+
+set_property PACKAGE_PIN AP42[get_ports DBI_2_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_2_n]
+
+set_property PACKAGE_PIN AN42[get_ports DBI_3_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_3_n]
+
+set_property PACKAGE_PIN AM45[get_ports DBI_4_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_4_n]
+
+set_property PACKAGE_PIN AM44[get_ports DBI_5_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_5_n]
+
+set_property PACKAGE_PIN AN45[get_ports DBI_6_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_6_n]
+
+set_property PACKAGE_PIN AP45[get_ports DBI_7_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_7_n]
+
+set_property PACKAGE_PIN AL44[get_ports DBI_8_n]
+set_property IOSTANDARD LVCMOS[get_ports DBI_8_n]
+
+set_property PACKAGE_PIN AL43[get_ports DQS_0_P]
+set_property IOSTANDARD LVDS[get_ports DQS_0_P]
+
+set_property PACKAGE_PIN AN47[get_ports DQS_1_P]
+set_property IOSTANDARD LVDS[get_ports DQS_1_P]
+
+set_property PACKAGE_PIN AM46[get_ports DQS_2_P]
+set_property IOSTANDARD LVDS[get_ports DQS_2_P]
+
+set_property PACKAGE_PIN AT46[get_ports DQS_3_P]
+set_property IOSTANDARD LVDS[get_ports DQS_3_P]
+
+set_property PACKAGE_PIN AR46[get_ports DQS_4_P]
+set_property IOSTANDARD LVDS[get_ports DQS_4_P]
+
+set_property PACKAGE_PIN AP44[get_ports DQS_5_P]
+set_property IOSTANDARD LVDS[get_ports DQS_5_P]
+
+set_property PACKAGE_PIN AP43[get_ports DQS_6_P]
+set_property IOSTANDARD LVDS[get_ports DQS_6_P]
+
+set_property PACKAGE_PIN AU44[get_ports DQS_7_P]
+set_property IOSTANDARD LVDS[get_ports DQS_7_P]
+
+set_property PACKAGE_PIN AT44[get_ports DQS_8_P]
+set_property IOSTANDARD LVDS[get_ports DQS_8_P]
+
+set_property PACKAGE_PIN AR47[get_ports DQS_0_N]
+set_property IOSTANDARD LVDS[get_ports DQS_0_N]
+
+set_property PACKAGE_PIN AT47[get_ports DQS_1_N]
+set_property IOSTANDARD LVDS[get_ports DQS_1_N]
+
+set_property PACKAGE_PIN AT42[get_ports LOOP]
+set_property IOSTANDARD nan[get_ports LOOP]
+
+set_property PACKAGE_PIN AT43[get_ports SYS_CLK_1]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports SYS_CLK_1]
+
+set_property PACKAGE_PIN AU43[get_ports SYS_CLK_2]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports SYS_CLK_2]
+
+set_property PACKAGE_PIN BG38[get_ports SYS_CLK_3]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports SYS_CLK_3]
+
+set_property PACKAGE_PIN BF39[get_ports SYS_CLK_4]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports SYS_CLK_4]
+
+set_property PACKAGE_PIN BC35[get_ports CMD_DATA_1]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports CMD_DATA_1]
+
+set_property PACKAGE_PIN BB35[get_ports CMD_DATA_2]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports CMD_DATA_2]
+
+set_property PACKAGE_PIN BC38[get_ports CMD_DATA_3]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports CMD_DATA_3]
+
+set_property PACKAGE_PIN BB38[get_ports CMD_DATA_4]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports CMD_DATA_4]
+
+set_property PACKAGE_PIN AW37[get_ports STATUS_DATA_1]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports STATUS_DATA_1]
+
+set_property PACKAGE_PIN AV38[get_ports STATUS_DATA_2]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports STATUS_DATA_2]
+
+set_property PACKAGE_PIN AY39[get_ports STATUS_DATA_3]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports STATUS_DATA_3]
+
+set_property PACKAGE_PIN AW39[get_ports STATUS_DATA_4]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports STATUS_DATA_4]
+
+set_property PACKAGE_PIN AY35[get_ports TX_INHIBIT_1]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports TX_INHIBIT_1]
+
+set_property PACKAGE_PIN AW35[get_ports TX_INHIBIT_2]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports TX_INHIBIT_2]
+
+set_property PACKAGE_PIN AV37[get_ports TX_INHIBIT_3]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports TX_INHIBIT_3]
+
+set_property PACKAGE_PIN AW36[get_ports TX_INHIBIT_4]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports TX_INHIBIT_4]
+
+set_property PACKAGE_PIN AV35[get_ports FRAME_SYNC_1]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports FRAME_SYNC_1]
+
+set_property PACKAGE_PIN AU35[get_ports FRAME_SYNC_2]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports FRAME_SYNC_2]
+
+set_property PACKAGE_PIN AU36[get_ports FRAME_SYNC_3]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports FRAME_SYNC_3]
+
+set_property PACKAGE_PIN AU37[get_ports FRAME_SYNC_4]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports FRAME_SYNC_4]
+
+set_property PACKAGE_PIN AT37[get_ports PWR_ENABLE_1]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports PWR_ENABLE_1]
+
+set_property PACKAGE_PIN AT38[get_ports PWR_ENABLE_2]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports PWR_ENABLE_2]
+
+set_property PACKAGE_PIN AM35[get_ports PWR_ENABLE_3]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports PWR_ENABLE_3]
+
+set_property PACKAGE_PIN AM36[get_ports PWR_ENABLE_4]
+set_property IOSTANDARD LVCMOS/LVTTL[get_ports PWR_ENABLE_4]
+
+set_property PACKAGE_PIN BE39[get_ports MMIC_RESET_IN]
+set_property IOSTANDARD CMOS[get_ports MMIC_RESET_IN]
+
+set_property PACKAGE_PIN BE40[get_ports MMIC_DATA_IN]
+set_property IOSTANDARD CMOS[get_ports MMIC_DATA_IN]
+
+set_property PACKAGE_PIN AT35[get_ports MMIC_LOAD_IN]
+set_property IOSTANDARD CMOS[get_ports MMIC_LOAD_IN]
+
+set_property PACKAGE_PIN AR35[get_ports MMIC_DATA_OUT]
+set_property IOSTANDARD CMOS[get_ports MMIC_DATA_OUT]
+
+set_property PACKAGE_PIN AP37[get_ports RF1_AGC_0]
+set_property IOSTANDARD TTL[get_ports RF1_AGC_0]
+
+set_property PACKAGE_PIN AR36[get_ports RF1_AGC_1]
+set_property IOSTANDARD TTL[get_ports RF1_AGC_1]
+
+set_property PACKAGE_PIN AP36[get_ports RF1_AGC_2]
+set_property IOSTANDARD TTL[get_ports RF1_AGC_2]
+
+set_property PACKAGE_PIN AN35[get_ports RF1_AGC_3]
+set_property IOSTANDARD TTL[get_ports RF1_AGC_3]
+
+set_property PACKAGE_PIN AR37[get_ports RF1_AGC_4]
+set_property IOSTANDARD TTL[get_ports RF1_AGC_4]
+
+set_property PACKAGE_PIN AP38[get_ports RF2_AGC_0]
+set_property IOSTANDARD TTL[get_ports RF2_AGC_0]
+
+set_property PACKAGE_PIN BA37[get_ports RF2_AGC_1]
+set_property IOSTANDARD TTL[get_ports RF2_AGC_1]
+
+set_property PACKAGE_PIN AY37[get_ports RF2_AGC_2]
+set_property IOSTANDARD TTL[get_ports RF2_AGC_2]
+
+set_property PACKAGE_PIN BA39[get_ports RF2_AGC_3]
+set_property IOSTANDARD TTL[get_ports RF2_AGC_3]
+
+set_property PACKAGE_PIN AY38[get_ports RF2_AGC_4]
+set_property IOSTANDARD TTL[get_ports RF2_AGC_4]
+
+set_property PACKAGE_PIN BA35[get_ports RF_MMIC_CLK]
+set_property IOSTANDARD CMOS[get_ports RF_MMIC_CLK]
+
+set_property PACKAGE_PIN AK1[get_ports DQS_2_N]
+set_property IOSTANDARD LVDS[get_ports DQS_2_N]
+
+set_property PACKAGE_PIN AK2[get_ports DQS_3_N]
+set_property IOSTANDARD LVDS[get_ports DQS_3_N]
+
+set_property PACKAGE_PIN AH6[get_ports DQS_4_N]
+set_property IOSTANDARD LVDS[get_ports DQS_4_N]
+
+set_property PACKAGE_PIN AH7[get_ports DQS_5_N]
+set_property IOSTANDARD LVDS[get_ports DQS_5_N]
+
+set_property PACKAGE_PIN AL4[get_ports DQS_6_N]
+set_property IOSTANDARD LVDS[get_ports DQS_6_N]
+
+set_property PACKAGE_PIN AM5[get_ports DQS_7_N]
+set_property IOSTANDARD LVDS[get_ports DQS_7_N]
+
+set_property PACKAGE_PIN AK11[get_ports DQS_8_N]
+set_property IOSTANDARD LVDS[get_ports DQS_8_N]
+
+set_property PACKAGE_PIN AL11[get_ports ALERT_n]
+set_property IOSTANDARD LVCMOS[get_ports ALERT_n]
+
+set_property PACKAGE_PIN AM10[get_ports ACT_n]
+set_property IOSTANDARD LVCMOS[get_ports ACT_n]
+
+set_property PACKAGE_PIN AM11[get_ports BA_0]
+set_property IOSTANDARD LVCMOS[get_ports BA_0]
+
+set_property PACKAGE_PIN AH9[get_ports BA_1]
+set_property IOSTANDARD LVCMOS[get_ports BA_1]
+
+set_property PACKAGE_PIN AJ10[get_ports BG_0]
+set_property IOSTANDARD LVCMOS[get_ports BG_0]
+
+set_property PACKAGE_PIN AK9[get_ports BG_1]
+set_property IOSTANDARD LVCMOS[get_ports BG_1]
+
+set_property PACKAGE_PIN AK10[get_ports DDR4_CLK_P]
+set_property IOSTANDARD LVDS[get_ports DDR4_CLK_P]
+
+set_property PACKAGE_PIN AH10[get_ports DDR4_CLK_N]
+set_property IOSTANDARD LVDS[get_ports DDR4_CLK_N]
+
+set_property PACKAGE_PIN AH11[get_ports CKE]
+set_property IOSTANDARD LVCMOS[get_ports CKE]
+
+set_property PACKAGE_PIN AL12[get_ports CS_n]
+set_property IOSTANDARD LVCMOS[get_ports CS_n]
+
+set_property PACKAGE_PIN AM12[get_ports DM_0_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_0_N]
+
+set_property PACKAGE_PIN AJ14[get_ports DM_1_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_1_N]
+
+set_property PACKAGE_PIN AK14[get_ports DM_2_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_2_N]
+
+set_property PACKAGE_PIN AL15[get_ports DM_3_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_3_N]
+
+set_property PACKAGE_PIN AM15[get_ports DM_4_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_4_N]
+
+set_property PACKAGE_PIN AL3[get_ports DM_5_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_5_N]
+
+set_property PACKAGE_PIN AM4[get_ports DM_6_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_6_N]
+
+set_property PACKAGE_PIN AH15[get_ports DM_7_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_7_N]
+
+set_property PACKAGE_PIN AJ15[get_ports DM_8_N]
+set_property IOSTANDARD LVCMOS[get_ports DM_8_N]
+
+set_property PACKAGE_PIN AK13[get_ports PARITY]
+set_property IOSTANDARD LVCMOS[get_ports PARITY]
+
+set_property PACKAGE_PIN AJ12[get_ports RAS_N]
+set_property IOSTANDARD LVCMOS[get_ports RAS_N]
+
+set_property PACKAGE_PIN AH12[get_ports CAS_N]
+set_property IOSTANDARD LVCMOS[get_ports CAS_N]
+
+set_property PACKAGE_PIN AH13[get_ports WE_N]
+set_property IOSTANDARD LVCMOS[get_ports WE_N]
+
+set_property PACKAGE_PIN AL13[get_ports DDR4_RESET_N]
+set_property IOSTANDARD LVCMOS[get_ports DDR4_RESET_N]
+
+set_property PACKAGE_PIN AM14[get_ports TEN]
+set_property IOSTANDARD LVCMOS[get_ports TEN]
+
